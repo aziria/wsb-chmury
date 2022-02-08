@@ -34,7 +34,7 @@ az webapp create \
     --output table
 
 
-### Wdrażamy aplikację z lokalnego repozytorium Git
+### Uzyskujemy URL do wdrożenia przez Git
 
 az webapp deployment source config-local-git \
     --name $APP_SERVICE_NAME \
