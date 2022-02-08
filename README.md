@@ -57,7 +57,7 @@ git remote add azure <uzyskane url>
 
 ### Wypchnij pliki
 
-git push azure main:master
+git push azure master:master
 
 ### Aplikacja jest gotowa
 
