@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Lista zakupów{% endblock %}
+{% set active_page = "guests" -%}
+{% block body %}
+<div class="row">
+    <div class="col" style="text-align: center">
+        <h2>Dodaj pozycję na listę zakupów</h2>
+        <br>
+        <form method="post" id="grocery_form">
+            <label for="product">Przedmiot:</label>
+            <input type="text" id="product" name="product" required="required"/>
+            <br>
+            <label for="details">Sczegóły:</label>
+            <textarea rows="1" cols="50" id="details" name="details" form="grocery_form" required="required"></textarea>
+            <br>
+            <input type="submit" value="Dodaj przedmiot"/>
+        </form>
+    </div>
+</div>
+<br>
+<br>
+<div class="row">
+    <div class="col" style="text-align: center">
+        <h2>Lista zakupów: </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-6" style="text-align: left">
+        <br>
+        <ol>
+            {% for result in data2 %}
+            <li>{{result.product}} - {{result.details}} </li>
+            {% else %}
+            <p>Brak przedmiotów</p>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endblock %}

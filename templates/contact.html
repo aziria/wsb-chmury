@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Kontakt{% endblock %}
+{% set active_page = "contact" -%}
+{% block body %}
+<div align="center">
+    <p>Skontaktuj się ze mną pod <a href="mailto: adi.aziri@gmail.com">tym adresem e-mail</a> lub przez poniższy formularz.</p>
+    <br>
+    <form id="mail_form">
+        Nick: <input type="text" name="user" required="required"/>
+        <br>
+        E-mail: <input type="email" name="recipient" required="required"/>
+        <br>
+        <textarea rows="4" cols="50" name="comment" form="mail_form" required="required"></textarea>
+        <br>
+        <input type="submit" value="Skontaktuj się!"/>
+    </form>
+    <br>
+    <p><a href="{{ url_for('index') }}">Powrót</a></p>
+    <img src="{{ url_for('static', filename='home.png') }}" style="height: 50px; width: 50px">
+</div>
+{% endblock %}
