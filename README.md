@@ -4,7 +4,7 @@ Aby uruchomić projekt w usłudze Azure App Service sklonuj to repozytorium i wy
 z użyciem Azure CLI.
 
 
-### Używamy stworzonej wcześniej grupy zasobów, w któej zanajduje się różnież baza danych:
+### Używamy stworzonej wcześniej grupy zasobów, w której znajduje się również baza danych:
 
 LOCATION='eastus'
 RESOURCE_GROUP_NAME='wsb-grupa'
