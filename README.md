@@ -1,16 +1,16 @@
-#wsb-chmury
+# wsb-chmury
 
 Aby uruchomić projekt w usłudze Azure App Service sklonuj to repozytorium i wykonaj poniższe kroki w konsoli Bash
 z użyciem Azure CLI.
 
 
-###Używamy stworzonej wcześniej grupy zasobów, w któej zanajduje się różnież baza danych:
+### Używamy stworzonej wcześniej grupy zasobów, w któej zanajduje się różnież baza danych:
 
 LOCATION='eastus'
 RESOURCE_GROUP_NAME='wsb-grupa'
 
 
-###Tworzymy plan App Service:
+### Tworzymy plan App Service:
 
 APP_SERVICE_PLAN_NAME='wsb-chmury'    
 
@@ -21,7 +21,7 @@ az appservice plan create \
     --is-linux
 
 
-###Tworzymy nowy App Service:
+### Tworzymy nowy App Service:
 
 APP_SERVICE_NAME='wsb-chmury-123'
 
@@ -34,7 +34,7 @@ az webapp create \
     --output table
 
 
-###Wdrażamy aplikację z lokalnego repozytorium Git
+### Wdrażamy aplikację z lokalnego repozytorium Git
 
 az webapp deployment source config-local-git \
     --name $APP_SERVICE_NAME \
@@ -42,7 +42,7 @@ az webapp deployment source config-local-git \
     --output tsv
 
 
-###Pobierz poświadczenia wdrożenia dla aplikacji.
+### Pobierz poświadczenia wdrożenia dla aplikacji.
 
 az webapp deployment list-publishing-credentials \
     --name $APP_SERVICE_NAME \
@@ -50,15 +50,15 @@ az webapp deployment list-publishing-credentials \
     --query "{Username:publishingUserName, Password:publishingPassword}" \
     --output table
 
-###Skonfiguruj zdalne repozytorium Git wskazujące na platformę Azure. Użyj URL uzyskanego w poprzednim kroku.
+### Skonfiguruj zdalne repozytorium Git wskazujące na platformę Azure. Użyj URL uzyskanego w poprzednim kroku.
 
 git remote add azure <uzyskane url>
 
 
-###Wypchnij pliki
+### Wypchnij pliki
 
 git push azure main:master
 
-###Aplikacja jest gotowa
+### Aplikacja jest gotowa
 
 http://wsb-chmury-123.azurewebsites.net
